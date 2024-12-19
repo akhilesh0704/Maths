@@ -1,16 +1,17 @@
-import sys
-import os 
-
+import math
 from fastapi import FastAPI
-from name import name_router
-from Akhil.user import user_routergit
+from arithmetic import arithmetic_router
+from algebric import algebric_router
+from logical import logical_router
+
+
 
 app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Welcome to Easy Maths"}
 
-app.include_router(name_router)
-
-app.include_router(user_router, prefix="/api")
+app.include_router(arithmetic_router, prefix="/api")
+app.include_router(algebric_router, prefix="/api")
+app.include_router(logical_router, prefix="/api")
